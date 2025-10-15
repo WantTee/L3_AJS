@@ -1,0 +1,11 @@
+function sortByName(comments, callback) {
+    const sorted = comments.sort((a, b) => a.name.localeCompare(b.name));
+    callback(sorted);
+}
+
+pm.test("Sorted comments", function () {
+    const comments = pm.response.json();
+    sortByName(comments, function(result) {
+        console.log("Sorted by name comments:", result);
+    });
+});
