@@ -1,0 +1,9 @@
+async function filterUncompletedTodos(todos) {
+    return todos.filter(todo => !todo.completed);
+}
+
+pm.test("Async filtered uncompleted todos", async function () {
+    const todos = pm.response.json();
+    const filtered = await filterUncompletedTodos(todos);
+    console.log("Async filtered uncompleted todos:", filtered);
+});
