@@ -1,0 +1,9 @@
+async function SorteByLength(posts) {
+    return posts.sort((a, b) => b.title.length - a.title.length);
+}
+
+pm.test("Async sorted posts by length of title", async function () {
+    const posts = pm.response.json();
+    const sorted = await SorteByLength(posts);
+    console.log("Async Sorted by length posts:", sorted);
+});
