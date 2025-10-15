@@ -1,0 +1,11 @@
+function sortByLength(posts, callback) {
+    const sort = posts.sort((a, b) => b.title.length - a.title.length);
+    callback(sort);
+}
+
+pm.test("Sorted posts by length of title", function () {
+    const posts = pm.response.json();
+    sortByLength(posts, function(result) {
+        console.log("Sorted by length posts:", result);
+    });
+});
