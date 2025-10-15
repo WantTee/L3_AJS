@@ -1,0 +1,16 @@
+function filterUsersFields(users) {
+    return users.map(user => ({
+        id: user.id,
+        name: user.name,
+        username: user.username,
+        email: user.email,
+        phone: user.phone
+    }));
+}
+
+pm.test("Filtered users fields", function () {
+    const users = pm.response.json();
+    Promise.resolve(filterUsersFields(users)).then(filtered => {
+        console.log("Filtered fields of users:", filtered);
+    });
+});
