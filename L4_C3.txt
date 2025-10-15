@@ -1,0 +1,15 @@
+async function sortUsers(users) {
+    return users.map(user => ({
+        id: user.id,
+        name: user.name,
+        username: user.username,
+        email: user.email,
+        phone: user.phone
+    }));
+}
+
+pm.test("Async filtered users fields", async function () {
+    const users = pm.response.json();
+    const filtered = await sortUsers(users);
+    console.log("Async filtered users fields:", filtered);
+});
