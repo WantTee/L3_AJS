@@ -1,0 +1,9 @@
+async function sortByName(comments) {
+    return comments.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+pm.test("Async sorted comments", async function () {
+    const comments = pm.response.json();
+    const sorted = await sortByName(comments);
+    console.log("Async sorted comments by name:", sorted);
+});
