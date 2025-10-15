@@ -1,0 +1,10 @@
+function filterUncompletedTodos(todos) {
+    return todos.filter(todo => !todo.completed);
+}
+
+pm.test("Filtered uncompleted todos", function () {
+    const todos = pm.response.json();
+    Promise.resolve(filterUncompletedTodos(todos)).then(filtered => {
+        console.log("Uncompleted Todos:", filtered);
+    });
+});
